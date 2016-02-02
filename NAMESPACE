@@ -3,3 +3,4 @@
 export(RP)
 export(SQ)
 export(roll)
+export(shuffle)

@@ -51,3 +51,26 @@ RP<-function(x,power = 1){
 }
 
 
+
+#' Shuffle
+#'
+#' @param Cards in a deck.
+#'
+#' @return Shuffels a deck of cards.
+#' @export
+#'
+#' @examples
+#' deck <- shuffle(cards = deck)
+#' deck[1:5, ]
+#'
+#'
+shuffle <- function(cards){
+  site <- "https://gist.githubusercontent.com/garrettgman/9629323/raw/ee5dfc039fd581cb467cc69c226ea2524913c3d8/deck.csv"
+  deck2 <- readr::read_csv(site)
+  head(deck2)
+  deck1 <- repmis::source_data(url = site, sep = ",", header = TRUE)
+  datatable(deck1)
+  index <- sample(dim(cards)[1], size = dim(cards)[1], replace = FALSE)
+  cards[index, ]
+}
+
